@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ObserverAnimals</title>
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<body>
+    <ul>
+        <li><a href="animals.html">Interact with Animals</a></li>
+        <li><a href="locations.html">Interact with Locations</a></li>
+        <li><a href="observers.html">Interact with Observers</a></li>
+        <li><a href="observerAnimals.html">Interact with ObserverAnimals</a></li>
+        <li><a href="sightings.html">Interact with Sightings</a></li>
+    </ul>
+    <h1>ObserverAnimals</h1>
+    <h4>Browse ObserverAnimals</h4>
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>observerAnimalID</th>
+            <th>observerID</th>
+            <th>animalID</th>
+            <th>expertiseLevel</th>
+            <th>timeOfDayPreference</th>
+        </tr>
+        <tr>
+            <td>Edit</td>
+            <td>Delete</td>
+            <td>120</td>
+            <td>1</td>
+            <td>20</td>
+            <td>intermediate</td>
+            <td>morning</td>
+        </tr>
+        <tr>
+            <td>Edit</td>
+            <td>Delete</td>
+            <td>819</td>
+            <td>8</td>
+            <td>19</td>
+            <td>expert</td>
+            <td>night</td>
+        </tr>
+        <tr>
+            <td>Edit</td>
+            <td>Delete</td>
+            <td>158</td>
+            <td>15</td>
+            <td>8</td>
+            <td>intermediate</td>
+            <td>night</td>
+        </tr>
+    </table>
+    <h4>Add ObserverAnimal</h4>
+    <form>
+        <fieldset>
+            <label for="observerName">Observer Name:</label>
+            <select name="observerName" id="observerName">
+              <option value="Ethan Thompson">Ethan Thompson</option>
+              <option value="Olivia Rodriguez">Olivia Rodriguez</option>
+              <option value="Mason Cooper">Mason Cooper</option>
+            </select>
+
+            <label for="species">Species:</label>
+            <select name="species" id="species">
+              <option value="Canada lynx">Canada lynx</option>  
+              <option value="American marten">American marten</option>
+              <option value="gray fox">gray fox</option>
+            </select>
+            
+            <label for="expertiseLevel">Expertise:</label>
+            <select name="expertiseLevel" id="expertiseLevel">
+              <option value="novice">Novice</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+            
+            <label for="timeOfDayPreference">Time of Day Preference:</label>
+            <select name="timeOfDayPreference" id="timeOfDayPreference">
+              <option value="morning">Morning</option>
+              <option value="noon">Noon</option>
+              <option value="night">Night</option>
+            </select> 
+
+        </fieldset>
+        <input type="submit" id="addObserverAnimal" value="Add ObserverAnimal">
+    </form>
+    <h4>Update ObserverAnimal</h4>
+    <form>
+        <fieldset>
+            <p>ObserverAnimal ID: 120</p>
+            <label for="updateObserverName">Observer Name:</label>
+            <select name="updateObserverName" id="updateObserverName">
+              <option value="Ethan Thompson">Ethan Thompson</option>
+              <option value="Olivia Rodriguez">Olivia Rodriguez</option>
+              <option value="Mason Cooper">Mason Cooper</option>
+            </select>
+
+            <label for="updateSpecies">Species:</label>
+            <select name="updateSpecies" id="updateSpecies">
+              <option value="Canada lynx">Canada lynx</option>  
+              <option value="American marten">American marten</option>
+              <option value="gray fox">gray fox</option>
+            </select>
+            
+            <label for="updateExpertiseLevel">Expertise:</label>
+            <select name="updateExpertiseLevel" id="updateExpertiseLevel">
+              <option value="novice">Novice</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="expert">Expert</option>
+            </select>
+            
+            <label for="updateTimeOfDayPreference">Time of Day Preference:</label>
+            <select name="updateTimeOfDayPreference" id="updateTimeOfDayPreference">
+              <option value="morning">Morning</option>
+              <option value="noon">Noon</option>
+              <option value="night">Night</option>
+            </select>
+        </fieldset>
+        <input type="submit" id="updateObserverAnimal" value="Update ObserverAnimal">
+        <h4>Delete ObserverAnimal</h4>
+        <p>Are you sure you want to delete the following ObserverAnimal?</p>
+        <p> observerAnimalID: 120<br>
+            Observer Name: Ethan Thompson<br>
+            Species: Canada lynx<br>
+            Expertise: Novice<br>
+            Time of Day Preference: Morning</p>
+        <input type="submit" id="deleteObserverAnimal" value="Delete ObserverAnimal">
+    </form>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sightings</title>
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<body>
+    <ul>
+        <li><a href="animals.html">Interact with Animals</a></li>
+        <li><a href="locations.html">Interact with Locations</a></li>
+        <li><a href="observers.html">Interact with Observers</a></li>
+        <li><a href="observerAnimals.html">Interact with ObserverAnimals</a></li>
+        <li><a href="sightings.html">Interact with Sightings</a></li>
+    </ul>
+    <h1>Sightings</h1>
+    <h4>Browse Sightings</h4>
+    <table>
+        <tr>
+            <th></th>
+            <th>sightingID</th>
+            <th>locationID</th>
+            <th>observerID</th>
+            <th>animalID</th>
+            <th>time</th>
+            <th>date</th>
+            <th>weather</th>
+        </tr>
+        <tr>
+            <td>Edit</td>
+            <td>1</td>
+            <td>20</td>
+            <td>14</td>
+            <td>16</td>
+            <td>8:45 AM</td>
+            <td>17-Feb-23</td>
+            <td>rain</td>
+        </tr>
+        <tr>
+            <td>Edit</td>
+            <td>2</td>
+            <td>17</td>
+            <td>3</td>
+            <td>15</td>
+            <td>2:30 PM</td>
+            <td>5-Apr-23</td>
+            <td>snow</td>
+        </tr>
+        <tr>
+            <td>Edit</td>
+            <td>3</td>
+            <td>2</td>
+            <td>16</td>
+            <td>6</td>
+            <td>11:15 AM</td>
+            <td>21-Jun-23</td>
+            <td>clear</td>
+        </tr>
+    </table>
+    <h4>Add Sighting</h4>
+    <form>
+        <fieldset>
+            <label for="county">County:</label>
+            <input type="text" id="county" name="county">
+            <label for="town">Town:</label>
+            <input type="text" id="town" name="town">
+            <p>In Park:</p>
+            <input type="radio" id="inParkTrue" name="inPark" value="true">
+            <label for="inParkTrue">True</label>
+            <input type="radio" id="inParkFalse" name="inPark" value="false">
+            <label for="inParkFalse">False</label><br><br>
+            <label for="park">Park Name:</label>
+            <input type="text" id="park" name="park"><br><br>
+
+            <label for="observerName">Observer Name:</label>
+            <select name="observerName" id="observerName">
+              <option value="NULL"></option>  
+              <option value="Ethan Thompson">Ethan Thompson</option>
+              <option value="Olivia Rodriguez">Olivia Rodriguez</option>
+              <option value="Mason Cooper">Mason Cooper</option>
+            </select> 
+
+            <label for="species">Species:</label>
+            <select name="species" id="species">
+              <option value="Canada lynx">Canada lynx</option>  
+              <option value="American marten">American marten</option>
+              <option value="gray fox">gray fox</option>
+            </select> 
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time">
+            <label for="weather">Weather:</label>
+            <select name="weather" id="weather">
+              <option value="rain">Rain</option>
+              <option value="snow">Snow</option>
+              <option value="clear">Clear</option>
+              <option value="fog">Fog</option>
+            </select> 
+        </fieldset>
+        <input type="submit" id="addSighting" value="Add Sighting">
+    </form>
+    <h4>Update Sighting</h4>
+    <form>
+        <fieldset>
+            <p>Sighting ID: 1</p>
+            <label for="updateCounty">County:</label>
+            <input type="text" id="updateCounty" name="updateCounty" value="Franklin">
+            <label for="updateTown">Town:</label>
+            <input type="text" id="updateTown" name="updateTown" value="Weld">
+            <p>In Park:</p>
+            <input type="radio" id="updateInParkTrue" name="updateInPark" value="true" checked>
+            <label for="updateInParkTrue">True</label>
+            <input type="radio" id="updateInParkFalse" name="updateInPark" value="false">
+            <label for="updateInParkFalse">False</label><br><br>
+            <label for="updatePark">Park Name:</label>
+            <input type="text" id="updatePark" name="updatePark" value="Mt. Blue State Park"><br><br>
+
+            <label for="updateObserverName">Observer Name:</label>
+            <select name="updateObserverName" id="updateObserverName">
+              <option value="NULL"></option>  
+              <option value="Ethan Thompson" selected>Ethan Thompson</option>
+              <option value="Olivia Rodriguez">Olivia Rodriguez</option>
+              <option value="Mason Cooper">Mason Cooper</option>
+            </select> 
+
+            <label for="updateSpecies">Species:</label>
+            <select name="updateSpecies" id="updateSpecies">
+              <option value="Canada lynx">Canada lynx</option>  
+              <option value="American marten" selected>American marten</option>
+              <option value="gray fox">gray fox</option>
+            </select> 
+
+            <label for="updateTime">Time:</label>
+            <input type="time" id="updateTime" name="updateTime" value="08:45">
+            <label for="updateWeather">Weather:</label>
+            <select name="updateWeather" id="updateWeather">
+              <option value="rain">Rain</option>
+              <option value="snow">Snow</option>
+              <option value="clear">Clear</option>
+              <option value="fog">Fog</option>
+            </select> 
+        </fieldset>
+        <input type="submit" id="updateSighting" value="Update Sighting">
+    </form>
+</body>
+</html>

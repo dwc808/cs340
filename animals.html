@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<body>
+    <ul>
+        <li><a href="animals.html">Interact with Animals</a></li>
+        <li><a href="locations.html">Interact with Locations</a></li>
+        <li><a href="observers.html">Interact with Observers</a></li>
+        <li><a href="observerAnimals.html">Interact with ObserverAnimals</a></li>
+        <li><a href="sightings.html">Interact with Sightings</a></li>
+    </ul>
+    <h1>Animals</h1>
+    <h4>Browse Animals</h4>
+    <table>
+        <tr>  
+            <th>animalID</th>
+            <th>species</th>
+            <th>class</th>
+            <th>federallyListed</th>
+            <th>expected</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Canada lynx</td>
+            <td>mammal</td>
+            <td>FALSE</td>
+            <td>TRUE</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>American marten</td>
+            <td>mammal</td>
+            <td>FALSE</td>
+            <td>TRUE</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>gray fox</td>
+            <td>mammal</td>
+            <td>FALSE</td>
+            <td>TRUE</td>
+        </tr>
+    </table>
+    <h4>Add Animal</h4>
+    <form>
+        <fieldset>
+            <label for="species">Species:</label>
+            <input type="text" id="species" name="species">
+            <label for="class">Class:</label>
+            <input type="text" id="class" name="class">
+            <p>Federally Listed:</p>
+            <input type="radio" id="flTrue" name="isFederallyListed" value="true">
+            <label for="flTrue">True</label>
+            <input type="radio" id="flFalse" name="isFederallyListed" value="false">
+            <label for="flFalse">False</label>
+            <p>Expected:</p>
+            <input type="radio" id="isExpectedTrue" name="isExpected" value="true">
+            <label for="isExpectedTrue">True</label>
+            <input type="radio" id="isExpectedFalse" name="isExpected" value="false">
+            <label for="isExpectedFalse">False</label>
+        </fieldset>
+        <input type="submit" id="addAnimal" value="Add Animal">
+    </form>
+</body>
+</html>
