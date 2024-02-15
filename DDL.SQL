@@ -26,8 +26,8 @@ CREATE OR REPLACE TABLE Observers (
 /*
 Creating ObserverAnimals
 */
-CREATE TABLE ObserverAnimals (
-    observerAnimalID INT,
+CREATE OR REPLACE TABLE ObserverAnimals (
+    observerAnimalID INT AUTO_INCREMENT,
     observerID INT NOT NULL,
     animalID INT NOT NULL,
     expertiseLevel VARCHAR(50) NOT NULL,
