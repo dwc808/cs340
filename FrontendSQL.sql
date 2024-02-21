@@ -2,7 +2,8 @@
 --            Animals                 --
 ----------------------------------------
 -- Query for viewing Animals table --
-SELECT * FROM Animals;
+SELECT * FROM Animals
+ORDER BY class;
 
 -- Query for creating a new Animal --
 INSERT INTO Animals (species, class, federallyListed, expected)
@@ -13,7 +14,8 @@ VALUES ({species_input}, {class_input}, {fListed_input}, {expected_input});
 ----------------------------------------
 
 -- Query for viewing Locations table --
-SELECT * FROM Locations;
+SELECT * FROM Locations
+ORDER BY parkName;
 
 -- Query for Creating new Location --
 INSERT INTO Locations (parkName)
@@ -24,7 +26,8 @@ VALUES ({park_input});
 ----------------------------------------
 
 -- Query for viewing Observers -- 
-SELECT * FROM Observers;
+SELECT * FROM Observers
+ORDER BY name;
 
 -- Query for creating new Observer --
 INSERT INTO Observers (name, phoneNumber, emailAddress)
