@@ -1,0 +1,99 @@
+<!-- index.hbs -->
+<h1>Observer/Animal Connections</h1>
+{{!-- Create a table --}}
+<table id="observer-animals-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+        {{!-- For each row in the data --}}
+        {{#each data}}
+            <tr data-value={{this.observerAnimalID}}>
+                <td>{{this.observerAnimalID}}</td>
+                <td>{{this.observerID}}</td>
+                <td>{{this.animalID}}</td>
+                <td>{{this.expertiseLevel}}</td>
+                <td>{{this.timeOfDayPreference}}</td>
+                <td><button onclick="deleteObserverAnimal({{this.observerAnimalID}})">Delete</button></td>
+            </tr>
+        {{/each}}
+    </tbody>
+
+</table>
+
+<!-- /views/index.hbs -->
+
+{{!-- Form to add a record to the table  --}}
+<h2>Add Observer/Animal Connection</h2>
+<form id="add-observer-animal-form-ajax">
+    <label for="input-observerID">Observer: </label>
+    <select name="input-observerID" id="input-observerID">
+        <option value="">Select an Observer</option>
+        {{#each observers}}
+        <option value="{{this.observerID}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-animalID">Animal: </label>
+    <select name="input-animalID" id="input-animalID">
+        <option value="">Select an Animal</option>
+        {{#each animals}}
+        <option value="{{this.animalID}}">{{this.species}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-expertiseLevel">Expertise Level: </label>
+    <input type="text" name="input-expertiseLevel" id="input-expertiseLevel">
+
+    <label for="input-timeOfDayPreference">Time of Day Preference: </label>
+    <input type="text" name="input-timeOfDayPreference" id="input-timeOfDayPreference">
+
+    <input type="submit">
+</form>
+
+{{!-- Form to update a record to the table  --}}
+<h2>Update Observer/Animal Connection</h2>
+<form id="update-observer-animal-form-ajax">
+    <label for="input-observerID-update">Observer: </label>
+    <select name="input-observerID-update" id="input-observerID-update">
+        <option value="">Select an Observer</option>
+        {{#each observers}}
+        <option value="{{this.observerID}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-animalID-update">Animal: </label>
+    <select name="input-animalID-update" id="input-animalID-update">
+        <option value="">Select an Animal</option>
+        {{#each animals}}
+        <option value="{{this.animalID}}">{{this.species}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-expertiseLevel-update">Expertise Level: </label>
+    <input type="text" name="input-expertiseLevel-update" id="input-expertiseLevel-update">
+
+    <label for="input-timeOfDayPreference-update">Time of Day Preference: </label>
+    <input type="text" name="input-timeOfDayPreference-update" id="input-timeOfDayPreference-update">
+
+    <input type="submit">
+
+</form>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="./js/add-observer-animal.js"></script>
+<script src="./js/update-observer-animal.js"></script>
+<script src="./js/delete-observer-animal.js"></script>
