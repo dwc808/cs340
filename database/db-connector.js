@@ -9,7 +9,7 @@ var pool = mysql.createPool({
     host            : 'classmysql.engr.oregonstate.edu',
     user            : '',
     password        : '',
-    database        : 'cs340_leathead'
+    database        : ''
 })
 
 // Export it for use in our applicaiton
