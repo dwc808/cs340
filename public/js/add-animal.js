@@ -89,6 +89,7 @@ addRowToTable = (data) => {
     let classCell = document.createElement("TD");
     let flCell = document.createElement("TD");
     let expectedCell = document.createElement("TD");
+    let deleteCell = document.createElement("TD");
 
     // Fill the cells with correct data
     animalIDCell.innerText = newRow.animalID;
@@ -97,14 +98,23 @@ addRowToTable = (data) => {
     flCell.innerText = newRow.federallyListed;
     expectedCell.innerText = newRow.expected;
 
+    deleteCell = document.createElement("button");
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function(){
+        deleteAnimal(newRow.animalID);
+    };
+
     // Add the cells to the row 
     row.appendChild(animalIDCell);
     row.appendChild(speciesCell);
     row.appendChild(classCell);
     row.appendChild(flCell);
     row.appendChild(expectedCell);
+    row.appendChild(deleteCell);
 
     // Add the row to the table
     currentTable.appendChild(row);
-
+    
+    // Refresh the page
+    window.location.reload();
 }

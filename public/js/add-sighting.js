@@ -85,6 +85,7 @@ addRowToTable = (data) => {
     let sightingTimeCell = document.createElement("TD");
     let sightingDateCell = document.createElement("TD");
     let weatherCell = document.createElement("TD");
+    let deleteCell = document.createElement("TD");
     
 
     // Fill the cells with correct data
@@ -94,6 +95,12 @@ addRowToTable = (data) => {
     sightingTimeCell.innerText = newRow.sightingTime;
     sightingDateCell.innerText = newRow.sightingDate;
     weatherCell.innerText = newRow.weather;
+    deleteCell = document.createElement("button");
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function(){
+        deleteSighting(newRow.sightingID);
+    };
+
 
 
     // Add the cells to the row 
@@ -103,6 +110,7 @@ addRowToTable = (data) => {
     row.appendChild(sightingTimeCell);
     row.appendChild(sightingDateCell);
     row.appendChild(weatherCell);
+    row.appendChild(deleteCell);
     
     // Add the row to the table
     currentTable.appendChild(row);

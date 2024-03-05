@@ -21,11 +21,12 @@
 
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
-        <tr>
+        <tr data-value={{this.observerID}}>
             <td>{{this.observerID}}</td>
             <td>{{this.name}}</td>
             <td>{{this.phoneNumber}}</td>
             <td>{{this.emailAddress}}</td>
+            <td><button onclick="deleteObserver({{this.observerID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -44,3 +45,4 @@
 </form>
 
 <script src="./js/add-observer.js"></script>
+<script src="./js/delete-observer.js"></script>

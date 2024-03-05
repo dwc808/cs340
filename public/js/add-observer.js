@@ -13,6 +13,7 @@ addObserverForm.addEventListener("submit", function (e) {
     let inputPhoneNumber = document.getElementById("input-phoneNumber");
     let inputEmailAddress = document.getElementById("input-emailAddress");
     
+    
     // Get the values from the form fields
     let name = inputName.value;
     let phoneNumber = inputPhoneNumber.value;
@@ -71,6 +72,7 @@ addRowToTable = (data) => {
     let nameCell = document.createElement("TD");
     let phoneNumberCell = document.createElement("TD");
     let emailAddressCell = document.createElement("TD");
+    let deleteCell = document.createElement("TD");
     
 
     // Fill the cells with correct data
@@ -78,6 +80,10 @@ addRowToTable = (data) => {
     nameCell.innerText = newRow.name;
     phoneNumberCell.innerText = newRow.phoneNumber;
     emailAddressCell.innerText = newRow.emailAddress;
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function(){
+        deleteObserver(newRow.observerID);
+    };
 
 
     // Add the cells to the row 
@@ -85,6 +91,7 @@ addRowToTable = (data) => {
     row.appendChild(nameCell);
     row.appendChild(phoneNumberCell);
     row.appendChild(emailAddressCell);
+    row.appendChild(deleteCell);
     
     // Add the row to the table
     currentTable.appendChild(row);

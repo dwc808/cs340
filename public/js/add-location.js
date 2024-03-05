@@ -61,16 +61,23 @@ addRowToTable = (data) => {
     let row = document.createElement("TR");
     let locationIDCell = document.createElement("TD");
     let parkNameCell = document.createElement("TD");
+    let deleteCell = document.createElement("TD");
     
 
     // Fill the cells with correct data
     locationIDCell.innerText = newRow.locationID;
     parkNameCell.innerText = newRow.parkName;
+    deleteCell = document.createElement("button");
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function(){
+        deleteLocation(newRow.locationID);
+    };
 
 
     // Add the cells to the row 
     row.appendChild(locationIDCell);
     row.appendChild(parkNameCell);
+    row.appendChild(deleteCell);
     
     // Add the row to the table
     currentTable.appendChild(row);

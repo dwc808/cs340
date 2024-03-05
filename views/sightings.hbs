@@ -19,7 +19,7 @@
     {{!-- Body section --}}
     <tbody>
         {{#each data}}
-        <tr>
+        <tr data-value={{this.sightingID}}>
             <td>{{this.sightingID}}</td>
             <td>{{this.locationID}}</td>
             <td>{{this.observerID}}</td>
@@ -27,6 +27,7 @@
             <td>{{this.sightingTime}}</td>
             <td>{{this.sightingDate}}</td>
             <td>{{this.weather}}</td>
+            <td><button onclick="deleteSighting({{this.sightingID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -84,3 +85,4 @@
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add-sighting.js"></script>
+<script src="./js/delete-sighting.js"></script>

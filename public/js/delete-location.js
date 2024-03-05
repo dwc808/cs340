@@ -1,12 +1,12 @@
-function deleteObserverAnimal(observerAnimalID) {
+function deleteLocation(locationID) {
     // Put our data we want to send in a javascript object
     let data = {
-        observerAnimalID: observerAnimalID
+        locationID: locationID
     };
 
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("DELETE", "/delete-observer-animal-ajax", true);
+    xhttp.open("DELETE", "/delete-location-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve
@@ -14,7 +14,7 @@ function deleteObserverAnimal(observerAnimalID) {
         if (xhttp.readyState == 4 && xhttp.status == 204) {
 
             // Delete data from table
-            deleteRow(observerAnimalID);
+            deleteRow(locationID);
 
         }
         else if (xhttp.readyState == 4 && xhttp.status != 204) {
@@ -26,14 +26,16 @@ function deleteObserverAnimal(observerAnimalID) {
 }
 
 
-function deleteRow(observerAnimalID){
-    let table = document.getElementById("observer-animals-table");
+function deleteRow(locationID){
+
+    let table = document.getElementById("locations-table");
     for (let i = 0, row; row = table.rows[i]; i++) {
        //iterate through rows
        //rows would be accessed using the "row" variable assigned in the for loop
-       if (table.rows[i].getAttribute("data-value") == observerAnimalID) {
+       if (table.rows[i].getAttribute("data-value") == locationID) {
             table.deleteRow(i);
             break;
        }
     }
+
 }

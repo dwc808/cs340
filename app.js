@@ -402,6 +402,51 @@ app.put('/put-observer-animal-ajax', function(req,res,next)
         }
 );
 
+// delete animal
+app.delete('/delete-animal-ajax', function(req,res,next){
+    let data = req.body;
+    let animalID = parseInt(data.animalID);
+    let deleteAnimals = `DELETE FROM Animals WHERE animalID = ?`;
+          db.pool.query(deleteAnimals, [animalID], function(error, rows, fields){
+              if (error) {
+                // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+                console.log(error);
+                res.sendStatus(400);
+              } else {
+                    res.sendStatus(204);
+              }
+  })});
+
+// delete location
+app.delete('/delete-location-ajax', function(req,res,next){
+    let data = req.body;
+    let locationID = parseInt(data.locationID);
+    let deleteLocation = `DELETE FROM Locations WHERE locationID = ?`;
+          db.pool.query(deleteLocation, [locationID], function(error, rows, fields){
+              if (error) {
+                // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+                console.log(error);
+                res.sendStatus(400);
+              } else {
+                    res.sendStatus(204);
+              }
+  })});
+
+// delete observer
+app.delete('/delete-observer-ajax', function(req,res,next){
+    let data = req.body;
+    let observerID = parseInt(data.observerID);
+    let deleteObserver = `DELETE FROM Observers WHERE observerID = ?`;
+          db.pool.query(deleteObserver, [observerID], function(error, rows, fields){
+              if (error) {
+                // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+                console.log(error);
+                res.sendStatus(400);
+              } else {
+                    res.sendStatus(204);
+              }
+  })});
+
 // delete observer-animal
 app.delete('/delete-observer-animal-ajax', function(req,res,next){
     let data = req.body;
@@ -416,6 +461,22 @@ app.delete('/delete-observer-animal-ajax', function(req,res,next){
                     res.sendStatus(204);
               }
   })});
+
+// delete sighting
+app.delete('/delete-sighting-ajax', function(req,res,next){
+    let data = req.body;
+    let sightingID = parseInt(data.sightingID);
+    let deleteSighting = `DELETE FROM Sightings WHERE sightingID = ?`;
+          db.pool.query(deleteSighting, [sightingID], function(error, rows, fields){
+              if (error) {
+                // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+                console.log(error);
+                res.sendStatus(400);
+              } else {
+                    res.sendStatus(204);
+              }
+  })});
+
   
 
 /*

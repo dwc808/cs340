@@ -21,12 +21,13 @@
 
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
-        <tr>
+        <tr data-value={{this.animalID}}>
             <td>{{this.animalID}}</td>
             <td>{{this.species}}</td>
             <td>{{this.class}}</td>
             <td>{{this.federallyListed}}</td>
             <td>{{this.expected}}</td>
+            <td><button onclick="deleteAnimal({{this.animalID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -56,3 +57,4 @@
 </form>
 
 <script src="./js/add-animal.js"></script>
+<script src="./js/delete-animal.js"></script>
