@@ -1,6 +1,7 @@
+<div class="container">
 <h1>Observers</h1>
 {{!-- Create a table --}}
-<table id="observers-table">
+<table id="observers-table" class="table">
 
     {{!-- Header section --}}
     <thead>
@@ -31,7 +32,9 @@
         {{/each}}
     </tbody>
 </table>
+</div>
 
+<div class="container">
 <h2>Add Observer</h2>
 <form id="add-observer-form-ajax">
     <p>* indicates required field.</p>
@@ -43,6 +46,7 @@
     <input type="email" name="input-emailAddress" id="input-emailAddress" required>
     <input type="submit">
 </form>
+</div>
 
 <script src="./js/add-observer.js"></script>
 <script src="./js/delete-observer.js"></script>

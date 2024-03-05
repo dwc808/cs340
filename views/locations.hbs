@@ -1,6 +1,7 @@
+<div class="container">
 <h1>Locations</h1>
 {{!-- Create a table --}}
-<table id="locations-table">
+<table id="locations-table" class="table">
 
     {{!-- Header section --}}
     <thead>
@@ -29,14 +30,17 @@
         {{/each}}
     </tbody>
 </table>
+</div>
 
+<div class="container">
 <h2>Add Location</h2>
 <form id="add-location-form-ajax">
     <p>* indicates required field.</p>
-    <label for="input-parkName">Park Name: * </label>
+    <label class="form-label" for="input-parkName">Park Name: * </label>
     <input type="text" name="input-parkName" id="input-parkName" required>
     <input type="submit">
 </form>
+</div>
 
 <script src="./js/add-location.js"></script>
 <script src="./js/delete-location.js"></script>

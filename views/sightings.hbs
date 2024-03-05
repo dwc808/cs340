@@ -1,6 +1,7 @@
+<div class="container">
 <h1>Sightings</h1>
 {{!-- Create a table --}}
-<table id="sightings-table">
+<table id="sightings-table" class="table">
 
     {{!-- Header section --}}
     <thead>
@@ -32,29 +33,31 @@
         {{/each}}
     </tbody>
 </table>
+</div>
 
+<div class="container">
 {{!-- Form to add a record to the table  --}}
 <h2>Add Sighting</h2>
 <form id="add-sighting-form-ajax">
     <p>* indicates required field.</p>
     <label for="input-locationID">Location: * </label>
-    <select name="input-locationID" id="input-locationID">
+    <select class="form-select" name="input-locationID" id="input-locationID">
         <option value="">Select a Location</option>
         {{#each locations}}
         <option value="{{this.locationID}}">{{this.parkName}}</option>
         {{/each}}
     </select>
     
-    <label for="input-observerID">Observer: (optional) </label>
-    <select name="input-observerID" id="input-observerID">
-        <option value="">Select an Observer</option>
+    <label for="input-observerID">Observer: </label>
+    <select class="form-select" name="input-observerID" id="input-observerID">
+        <option value="">Select an Observer (optional) </option>
         {{#each observers}}
         <option value="{{this.observerID}}">{{this.name}}</option>
         {{/each}}
     </select>
 
     <label for="input-animalID">Animal: * </label>
-    <select name="input-animalID" id="input-animalID">
+    <select class="form-select" name="input-animalID" id="input-animalID">
         <option value="">Select an Animal</option>
         {{#each animals}}
         <option value="{{this.animalID}}">{{this.species}}</option>
@@ -70,7 +73,7 @@
     </p>
         <p>
         <label for="input-weather">Weather: * </label>
-        <select name="input-weather" id="input-weather">
+        <select class="form-select" name="input-weather" id="input-weather">
             <option value="">Select Weather Condition</option>
             <option value="rain">Rain</option>
             <option value="snow">Snow</option>
@@ -80,6 +83,7 @@
     </p>
     <input type="submit">
 </form>
+</div>
 
 
 

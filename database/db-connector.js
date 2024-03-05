@@ -8,7 +8,7 @@ var pool = mysql.createPool({
     connectionLimit : 10,
     host            : 'classmysql.engr.oregonstate.edu',
     user            : 'cs340_leathead',
-    password        : '7793',
+    password        : '',
     database        : 'cs340_leathead'
 })
 
