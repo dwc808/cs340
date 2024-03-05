@@ -1,0 +1,38 @@
+{{!-- Create a table --}}
+<table id="locations-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.locationID}}</td>
+            <td>{{this.parkName}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Create new location entry</h2>
+<form id="add-location-form-ajax">
+    <label for="input-parkName">Park Name: </label>
+    <input type="text" name="input-parkName" id="input-parkName">
+    <input type="submit">
+</form>
+
+<script src="./js/add-location.js"></script>

@@ -1,0 +1,56 @@
+{{!-- Create a table --}}
+<table id="animals-table">
+
+    {{!-- Header section --}}
+    <thead>
+
+        {{!-- For just the first row, we print each key of the row object as a header cell so we
+        know what each column means when the page renders --}}
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    {{!-- Body section --}}
+    <tbody>
+
+        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{#each data}}
+        <tr>
+            <td>{{this.animalID}}</td>
+            <td>{{this.species}}</td>
+            <td>{{this.class}}</td>
+            <td>{{this.federallyListed}}</td>
+            <td>{{this.expected}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Create new animal entry</h2>
+<form id="add-animal-form-ajax">
+    <label for="input-species">Species:</label>
+    <input type="text" name="input-species" id="input-species">
+
+    <label for="input-class">Class:</label>
+    <input type="text" name="input-class" id="input-class">
+
+    <p>Federally Listed:</p>
+        <input type="radio" id="flTrue" name="input-ifl" value="1">
+        <label for="flTrue">True</label>
+        <input type="radio" id="flFalse" name="input-ifl" value="0">
+        <label for="flFalse">False</label>
+    <p>Expected:</p>
+        <input type="radio" id="isExpectedTrue" name="input-isExpected" value="1">
+        <label for="isExpectedTrue">True</label>
+        <input type="radio" id="isExpectedFalse" name="input-isExpected" value="0">
+        <label for="isExpectedFalse">False</label>
+
+    <input type="submit">
+</form>
+
+<script src="./js/add-animal.js"></script>

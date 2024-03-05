@@ -23,11 +23,35 @@ var db = require('./database/db-connector');
     ROUTES
 */
 
+// home page
 app.get('/', function(req, res)
     {  
         res.render('home');        
-    });                                                        
+    });
 
+//populate animals table    
+app.get('/animals', function(req,res)
+    {
+        let a_query1 = "SELECT * FROM Animals ORDER BY class;";
+
+        db.pool.query(a_query1, function(error, rows, fields){
+
+            res.render('animals', {data:rows});
+        })
+    });
+
+//populate locations table
+app.get('/locations', function(req,res)
+{
+    let query1 = "SELECT * FROM Locations ORDER BY parkName;";
+
+    db.pool.query(query1, function(error, rows, fields){
+
+        res.render('locations', {data:rows});
+    })
+})
+
+//populate observerAnimals
 app.get('/observerAnimals', function(req, res)
     {  
         let query1 = "SELECT * FROM ObserverAnimals;";          // Define our query
@@ -59,6 +83,42 @@ app.get('/observerAnimals', function(req, res)
         })                                                      // an object where 'data' is equal to the 'rows' we
     });                                                         // received back from the query, observers, animals etc.
 
+
+//Add new animal    
+app.post('/add-animal-ajax', function(req,res)
+{
+    //get incoming data and parse to a JS object
+    let data = req.body;
+
+
+    //run query for insert
+    query1 = `INSERT INTO Animals (species, class, federallyListed, expected) VALUES (?,?,?,?)`;
+    db.pool.query(query1, [data.species, data.class, data.fl, data.expected], function(error, rows, fields){
+        //log an error if there is one
+        if (error) {
+            console.log(error)
+            res.sendStatus(400);
+        }
+        else
+        {
+            query2 = `SELECT * FROM Animals;`;
+            db.pool.query(query2, function(error, rows, fields){
+
+                if (error) {
+                    console.log(error)
+                    res.sendStatus(400);
+                }
+                else
+                {
+                    res.send(rows);
+                }
+
+            })
+        }
+    })
+});
+
+//Add new observer-animal
 app.post('/add-observer-animal-ajax', function(req, res) 
 {
     // Capture the incoming data and parse it back to a JS object
@@ -106,6 +166,7 @@ app.post('/add-observer-animal-ajax', function(req, res)
     })
 });
 
+// edit observerAnimal
 app.put('/put-observer-animal-ajax', function(req,res,next)
 {
     let data = req.body;
@@ -148,6 +209,7 @@ app.put('/put-observer-animal-ajax', function(req,res,next)
         }
 );
 
+// delete observer-animal
 app.delete('/delete-observer-animal-ajax', function(req,res,next){
     let data = req.body;
     let observerAnimalID = parseInt(data.observerAnimalID);
