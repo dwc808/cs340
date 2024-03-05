@@ -39,7 +39,9 @@
 {{!-- Form to add a record to the table  --}}
 <h2>Add Observer/Animal Connection</h2>
 <form id="add-observer-animal-form-ajax">
-    <label for="input-observerID">Observer: </label>
+    <p>* indicates required field.</p>
+
+    <label for="input-observerID">Observer: * </label>
     <select name="input-observerID" id="input-observerID">
         <option value="">Select an Observer</option>
         {{#each observers}}
@@ -47,27 +49,38 @@
         {{/each}}
     </select>
     
-    <label for="input-animalID">Animal: </label>
+    <label for="input-animalID">Animal: * </label>
     <select name="input-animalID" id="input-animalID">
         <option value="">Select an Animal</option>
         {{#each animals}}
         <option value="{{this.animalID}}">{{this.species}}</option>
         {{/each}}
     </select>
-
-    <label for="input-expertiseLevel">Expertise Level: </label>
-    <input type="text" name="input-expertiseLevel" id="input-expertiseLevel">
-
-    <label for="input-timeOfDayPreference">Time of Day Preference: </label>
-    <input type="text" name="input-timeOfDayPreference" id="input-timeOfDayPreference">
-
+    <p></p>
+    <label for="input-expertiseLevel">Expertise Level: *</label>
+    <select name="input-expertiseLevel" id="input-expertiseLevel" required>
+        <option value="">Select an Expertise Level</option>
+        <option value="novice">Novice</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+    </select>
+    <p></p>
+    <label for="input-timeOfDayPreference">Time of Day Preference: *</label>
+    <select name="input-timeOfDayPreference" id="input-timeOfDayPreference" required>
+        <option value="">Select a Time of Day Preference</option>
+        <option value="morning">Morning</option>
+        <option value="noon">Noon</option>
+        <option value="night">Night</option>
+    </select>
+    <p></p>
     <input type="submit">
 </form>
 
 {{!-- Form to update a record to the table  --}}
 <h2>Update Observer/Animal Connection</h2>
 <form id="update-observer-animal-form-ajax">
-    <label for="input-observerID-update">Observer: </label>
+    <p>* indicates required field.</p>
+    <label for="input-observerID-update">Observer: * </label>
     <select name="input-observerID-update" id="input-observerID-update">
         <option value="">Select an Observer</option>
         {{#each observers}}
@@ -75,7 +88,7 @@
         {{/each}}
     </select>
     
-    <label for="input-animalID-update">Animal: </label>
+    <label for="input-animalID-update">Animal: * </label>
     <select name="input-animalID-update" id="input-animalID-update">
         <option value="">Select an Animal</option>
         {{#each animals}}
@@ -83,11 +96,23 @@
         {{/each}}
     </select>
 
-    <label for="input-expertiseLevel-update">Expertise Level: </label>
-    <input type="text" name="input-expertiseLevel-update" id="input-expertiseLevel-update">
-
-    <label for="input-timeOfDayPreference-update">Time of Day Preference: </label>
-    <input type="text" name="input-timeOfDayPreference-update" id="input-timeOfDayPreference-update">
+    <p></p>
+    <label for="input-expertiseLevel-update">Expertise Level: *</label>
+    <select name="input-expertiseLevel-update" id="input-expertiseLevel-update" required>
+        <option value="">Select an Expertise Level</option>
+        <option value="novice">Novice</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="expert">Expert</option>
+    </select>
+    <p></p>
+    <label for="input-timeOfDayPreference-update">Time of Day Preference: *</label>
+    <select name="input-timeOfDayPreference-update" id="input-timeOfDayPreference-update" required>
+        <option value="">Select a Time of Day Preference</option>
+        <option value="morning">Morning</option>
+        <option value="noon">Noon</option>
+        <option value="night">Night</option>
+    </select>
+    <p></p>
 
     <input type="submit">
 

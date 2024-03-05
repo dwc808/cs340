@@ -33,12 +33,13 @@
 
 <h2>Add Observer</h2>
 <form id="add-observer-form-ajax">
-    <label for="input-name">Name: </label>
-    <input type="text" name="input-name" id="input-name">
-    <label for="input-phoneNumber">Phone Number: </label>
-    <input type="text" name="input-phoneNumber" id="input-phoneNumber">
-    <label for="input-emailAddress">Email Address: </label>
-    <input type="text" name="input-emailAddress" id="input-emailAddress">
+    <p>* indicates required field.</p>
+    <label for="input-name">Name: * </label>
+    <input type="text" name="input-name" id="input-name" required>
+    <label for="input-phoneNumber">Phone Number: * </label>
+    <input type="text" name="input-phoneNumber" id="input-phoneNumber" required>
+    <label for="input-emailAddress">Email Address: * </label>
+    <input type="email" name="input-emailAddress" id="input-emailAddress" required>
     <input type="submit">
 </form>
 
