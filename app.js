@@ -104,6 +104,9 @@ app.get('/sightings', function(req, res)
 
         db.pool.query(query1, function(error, rows, fields){    // Execute the query
             let sightings = rows;
+            sightings.forEach(sighting => {
+                sighting.sightingDate = formatDate(sighting.sightingDate);
+            });
             db.pool.query(query2, (error, rows, fields) => {
                 let locations = rows;
                 let locationMap = {}
@@ -134,6 +137,14 @@ app.get('/sightings', function(req, res)
             })                                                  // Render the observerAnimals.hbs file, and also send the renderer
         })                                                      // an object where 'data' is equal to the 'rows' we
     }); 
+
+function formatDate(dateString) {
+    let dateObj = new Date(dateString);
+    let month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+    let day = dateObj.getDate().toString().padStart(2, '0');
+    let year = dateObj.getFullYear();
+    return `${month}-${day}-${year}`;
+}
 
 //Add new animal    
 app.post('/add-animal-ajax', function(req,res)
