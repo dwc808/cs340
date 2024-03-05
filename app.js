@@ -152,7 +152,6 @@ app.post('/add-animal-ajax', function(req,res)
     //get incoming data and parse to a JS object
     let data = req.body;
 
-
     //run query for insert
     query1 = `INSERT INTO Animals (species, class, federallyListed, expected) VALUES (?,?,?,?)`;
     db.pool.query(query1, [data.species, data.class, data.fl, data.expected], function(error, rows, fields){

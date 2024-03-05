@@ -11,14 +11,17 @@ addAnimalForm.addEventListener("submit", function (e) {
     // Get form fields we need to get data from
     let inputSpecies = document.getElementById("input-species");
     let inputClass = document.getElementById("input-class");
-    let inputFL = document.getElementById("flTrue");
-    let inputExpected = document.getElementById("isExpectedTrue");
+    let inputFLTrue = document.getElementById("flTrue");
+    let inputFLFalse = document.getElementById("flFalse");
+    let inputExpectedTrue = document.getElementById("isExpectedTrue");
+    let inputExpectedFalse = document.getElementById("isExpectedFalse");
 
     // Get the values from the form fields
     let speciesValue = inputSpecies.value;
     let classValue = inputClass.value;
-    let flValue = inputFL.value;
-    let expectedValue = inputExpected.value;
+    let flValue = inputFLTrue.checked? 1 : 0;
+    let expectedValue = inputExpectedTrue.checked ? 1 : 0;
+
 
     // Put our data we want to send in a javascript object
     let data = {
@@ -43,8 +46,10 @@ addAnimalForm.addEventListener("submit", function (e) {
             // Clear the input fields for another transaction
             inputSpecies.value = '';
             inputClass.value = '';
-            inputFL.value = '';
-            inputExpected.value = '';
+            inputFLTrue.checked = false;
+            inputFLFalse.checked = false;
+            inputExpectedTrue.checked = false;
+            inputExpectedFalse.checked = false;
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
             console.log("There was an error with the input.")
@@ -67,7 +72,7 @@ addRowToTable = (data) => {
     // Get a reference to the new row from the database query (last object)
     let parsedData = JSON.parse(data);
     let newRow = parsedData[parsedData.length - 1]
-
+    
     // Create a row and 4 cells
     let row = document.createElement("TR");
     let animalIDCell = document.createElement("TD");

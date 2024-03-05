@@ -34,22 +34,23 @@
 
 <h2>Add Animal</h2>
 <form id="add-animal-form-ajax">
-    <label for="input-species">Species:</label>
+    <p>* indicates required field.</p>
+    <label for="input-species">Species: * </label>
     <input type="text" name="input-species" id="input-species">
 
-    <label for="input-class">Class:</label>
+    <label for="input-class">Class: * </label>
     <input type="text" name="input-class" id="input-class">
 
-    <p>Federally Listed:</p>
+    <p>Federally Listed: * </p>
         <input type="radio" id="flTrue" name="input-ifl" value="1">
         <label for="flTrue">True</label>
         <input type="radio" id="flFalse" name="input-ifl" value="0">
         <label for="flFalse">False</label>
-    <p>Expected:</p>
+    <p>Is this animal expected here?: * </p>
         <input type="radio" id="isExpectedTrue" name="input-isExpected" value="1">
-        <label for="isExpectedTrue">True</label>
+        <label for="isExpectedTrue">Yes</label>
         <input type="radio" id="isExpectedFalse" name="input-isExpected" value="0">
-        <label for="isExpectedFalse">False</label>
+        <label for="isExpectedFalse">No</label>
     <p></p>
     <input type="submit">
 </form>
