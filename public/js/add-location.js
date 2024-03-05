@@ -69,7 +69,7 @@ addRowToTable = (data) => {
 
 
     // Add the cells to the row 
-    row.appendChild(locationIDcell);
+    row.appendChild(locationIDCell);
     row.appendChild(parkNameCell);
     
     // Add the row to the table

@@ -166,6 +166,40 @@ app.post('/add-observer-animal-ajax', function(req, res)
     })
 });
 
+//Add location
+app.post('/add-location-ajax', function(req,res)
+{
+    //get incoming data and parse to a JS object
+    let data = req.body;
+
+
+    //run query for insert
+    query1 = `INSERT INTO Locations (parkName) VALUES (?)`;
+    db.pool.query(query1, [data.parkName], function(error, rows, fields){
+        //log an error if there is one
+        if (error) {
+            console.log(error)
+            res.sendStatus(400);
+        }
+        else
+        {
+            query2 = `SELECT * FROM Locations;`;
+            db.pool.query(query2, function(error, rows, fields){
+
+                if (error) {
+                    console.log(error)
+                    res.sendStatus(400);
+                }
+                else
+                {
+                    res.send(rows);
+                }
+
+            })
+        }
+    })
+});
+
 // edit observerAnimal
 app.put('/put-observer-animal-ajax', function(req,res,next)
 {
