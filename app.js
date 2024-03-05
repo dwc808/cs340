@@ -51,6 +51,17 @@ app.get('/locations', function(req,res)
     })
 })
 
+//populate observers table
+app.get('/observers', function(req,res)
+{
+    let query1 = "SELECT * FROM Observers;";
+
+    db.pool.query(query1, function(error, rows, fields){
+
+        res.render('observers', {data:rows});
+    })
+})
+
 //populate observerAnimals
 app.get('/observerAnimals', function(req, res)
     {  
@@ -102,6 +113,40 @@ app.post('/add-animal-ajax', function(req,res)
         else
         {
             query2 = `SELECT * FROM Animals;`;
+            db.pool.query(query2, function(error, rows, fields){
+
+                if (error) {
+                    console.log(error)
+                    res.sendStatus(400);
+                }
+                else
+                {
+                    res.send(rows);
+                }
+
+            })
+        }
+    })
+});
+
+//Add new observer    
+app.post('/add-observer-ajax', function(req,res)
+{
+    //get incoming data and parse to a JS object
+    let data = req.body;
+
+
+    //run query for insert
+    query1 = `INSERT INTO Observers (name, phoneNumber, emailAddress) VALUES (?, ?, ?)`;
+    db.pool.query(query1, [data.name, data.phoneNumber, data.emailAddress], function(error, rows, fields){
+        //log an error if there is one
+        if (error) {
+            console.log(error)
+            res.sendStatus(400);
+        }
+        else
+        {
+            query2 = `SELECT * FROM Observers;`;
             db.pool.query(query2, function(error, rows, fields){
 
                 if (error) {
