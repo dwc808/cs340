@@ -38,12 +38,12 @@
 <div class="container">
 <h2>Add Animal</h2>
 <form id="add-animal-form-ajax">
-    <p>* indicates required field.</p>
-    <label class="form-label" for="input-species">Species: * </label>
+    <p><span>*</span> indicates required field.</p>
+    <label class="form-label" for="input-species">Species: <span>*</span> </label>
     <input type="text" name="input-species" id="input-species" required>
 
     <p>
-    <label class="form-label" for="input-class">Class: * </label>
+    <label class="form-label" for="input-class">Class: <span>*</span> </label>
     <select class="form-select" name="input-class" id="input-class" required>
         <option value="">Select a Class</option>
         <option value="amphibian">Amphibian</option>
@@ -54,14 +54,14 @@
     </select>
     </p>
 
-    <p>Federally Listed: * 
+    <p>Federally Listed: <span>*</span>
         <input class="form-check-input" type="radio" id="flTrue" name="input-ifl" value="1">
         <label class="form-check-label" for="flTrue">True</label>
         <input class="form-check-input" type="radio" id="flFalse" name="input-ifl" value="0">
         <label class="form-check-label" for="flFalse">False</label>
     </p>
 
-    <p>Is this animal expected here?: * 
+    <p>Is this animal expected here?: <span>*</span>
         <input class="form-check-input" type="radio" id="isExpectedTrue" name="input-isExpected" value="1">
         <label class="form-check-label" for="isExpectedTrue">Yes</label>
         <input class="form-check-input" type="radio" id="isExpectedFalse" name="input-isExpected" value="0">

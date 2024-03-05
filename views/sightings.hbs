@@ -39,9 +39,9 @@
 {{!-- Form to add a record to the table  --}}
 <h2>Add Sighting</h2>
 <form id="add-sighting-form-ajax">
-    <p>* indicates required field.</p>
-    <label for="input-locationID">Location: * </label>
-    <select class="form-select" name="input-locationID" id="input-locationID">
+    <p><span>*</span> indicates required field.</p>
+    <label for="input-locationID">Location: <span>*</span> </label>
+    <select class="form-select" name="input-locationID" id="input-locationID" required>
         <option value="">Select a Location</option>
         {{#each locations}}
         <option value="{{this.locationID}}">{{this.parkName}}</option>
@@ -56,24 +56,24 @@
         {{/each}}
     </select>
 
-    <label for="input-animalID">Animal: * </label>
-    <select class="form-select" name="input-animalID" id="input-animalID">
+    <label for="input-animalID">Animal: <span>*</span> </label>
+    <select class="form-select" name="input-animalID" id="input-animalID" required>
         <option value="">Select an Animal</option>
         {{#each animals}}
         <option value="{{this.animalID}}">{{this.species}}</option>
         {{/each}}
     </select>
     <p>
-        <label for="input-sightingTime">Time Observed: * </label>
-        <input type="time" name="input-sightingTime" id="input-sightingTime">
+        <label for="input-sightingTime">Time Observed: <span>*</span> </label>
+        <input type="time" name="input-sightingTime" id="input-sightingTime" required>
     </p>
     <p>
-        <label for="input-sightingDate">Date Observed: * </label>
-        <input type="date" name="input-sightingDate" id="input-sightingDate">
+        <label for="input-sightingDate">Date Observed: <span>*</span> </label>
+        <input type="date" name="input-sightingDate" id="input-sightingDate" required>
     </p>
         <p>
-        <label for="input-weather">Weather: * </label>
-        <select class="form-select" name="input-weather" id="input-weather">
+        <label for="input-weather">Weather: <span>*</span> </label>
+        <select class="form-select" name="input-weather" id="input-weather" required>
             <option value="">Select Weather Condition</option>
             <option value="rain">Rain</option>
             <option value="snow">Snow</option>

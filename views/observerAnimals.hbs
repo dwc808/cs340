@@ -41,25 +41,25 @@
 {{!-- Form to add a record to the table  --}}
 <h2>Add Observer/Animal Connection</h2>
 <form id="add-observer-animal-form-ajax">
-    <p>* indicates required field.</p>
+    <p><span>*</span> indicates required field.</p>
 
-    <label class="form-label" for="input-observerID">Observer: * </label>
-    <select class="form-select" name="input-observerID" id="input-observerID">
+    <label class="form-label" for="input-observerID">Observer: <span>*</span> </label>
+    <select class="form-select" name="input-observerID" id="input-observerID" required>
         <option value="">Select an Observer</option>
         {{#each observers}}
         <option value="{{this.observerID}}">{{this.name}}</option>
         {{/each}}
     </select>
     
-    <label class="form-label" for="input-animalID">Animal: * </label>
-    <select class="form-select" name="input-animalID" id="input-animalID">
+    <label class="form-label" for="input-animalID">Animal: <span>*</span> </label>
+    <select class="form-select" name="input-animalID" id="input-animalID" required>
         <option value="">Select an Animal</option>
         {{#each animals}}
         <option value="{{this.animalID}}">{{this.species}}</option>
         {{/each}}
     </select>
     <p></p>
-    <label class="form-label" for="input-expertiseLevel">Expertise Level: *</label>
+    <label class="form-label" for="input-expertiseLevel">Expertise Level: <span>*</span></label>
     <select class="form-select" name="input-expertiseLevel" id="input-expertiseLevel" required>
         <option value="">Select an Expertise Level</option>
         <option value="novice">Novice</option>
@@ -67,7 +67,7 @@
         <option value="expert">Expert</option>
     </select>
     <p></p>
-    <label class="form-label" for="input-timeOfDayPreference">Time of Day Preference: *</label>
+    <label class="form-label" for="input-timeOfDayPreference">Time of Day Preference: <span>*</span></label>
     <select class="form-select" name="input-timeOfDayPreference" id="input-timeOfDayPreference" required>
         <option value="">Select a Time of Day Preference</option>
         <option value="morning">Morning</option>
@@ -83,7 +83,7 @@
 <h2>Update Observer/Animal Connection</h2>
 <form id="update-observer-animal-form-ajax">
     <p>* indicates required field.</p>
-    <label class="form-label" for="input-observerID-update">Observer: * </label>
+    <label class="form-label" for="input-observerID-update">Observer: <span>*</span> </label>
     <select class="form-select" name="input-observerID-update" id="input-observerID-update">
         <option value="">Select an Observer</option>
         {{#each observers}}
@@ -91,7 +91,7 @@
         {{/each}}
     </select>
     
-    <label class="form-label" for="input-animalID-update">Animal: * </label>
+    <label class="form-label" for="input-animalID-update">Animal: <span>*</span> </label>
     <select class="form-select" name="input-animalID-update" id="input-animalID-update">
         <option value="">Select an Animal</option>
         {{#each animals}}
@@ -100,7 +100,7 @@
     </select>
 
     <p></p>
-    <label class="form-label" for="input-expertiseLevel-update">Expertise Level: *</label>
+    <label class="form-label" for="input-expertiseLevel-update">Expertise Level: <span>*</span></label>
     <select class="form-select" name="input-expertiseLevel-update" id="input-expertiseLevel-update" required>
         <option value="">Select an Expertise Level</option>
         <option value="novice">Novice</option>
@@ -108,7 +108,7 @@
         <option value="expert">Expert</option>
     </select>
     <p></p>
-    <label class="form-label" for="input-timeOfDayPreference-update">Time of Day Preference: *</label>
+    <label class="form-label" for="input-timeOfDayPreference-update">Time of Day Preference: <span>*</span></label>
     <select class="form-select" name="input-timeOfDayPreference-update" id="input-timeOfDayPreference-update" required>
         <option value="">Select a Time of Day Preference</option>
         <option value="morning">Morning</option>
