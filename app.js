@@ -94,6 +94,46 @@ app.get('/observerAnimals', function(req, res)
         })                                                      // an object where 'data' is equal to the 'rows' we
     });                                                         // received back from the query, observers, animals etc.
 
+//populate sightings
+app.get('/sightings', function(req, res)
+    {  
+        let query1 = "SELECT * FROM Sightings;";          // Define our query
+        let query2 = "SELECT * FROM Locations;";          // Define our query
+        let query3 = "SELECT * FROM Observers;";          // Define our query
+        let query4 = "SELECT * FROM Animals;";          // Define our query
+
+        db.pool.query(query1, function(error, rows, fields){    // Execute the query
+            let sightings = rows;
+            db.pool.query(query2, (error, rows, fields) => {
+                let locations = rows;
+                let locationMap = {}
+                locations.map(location => {
+                    let id = parseInt(location.locationID, 10);
+                    locationMap[id] = location["parkName"];
+                })
+                db.pool.query(query3, (error, rows, fields) => {
+                    let observers = rows;
+                    let observerMap = {}
+                    observers.map(observer => {
+                        let id = parseInt(observer.observerID, 10);
+                        observerMap[id] = observer["name"];
+                    })
+                    db.pool.query(query4, (error, rows, fields) => {
+                        let animals = rows;
+                        let animalMap = {}
+                        animals.map(animal => {
+                            let id = parseInt(animal.animalID, 10);
+                            animalMap[id] = animal["species"];
+                        })
+                        sightings = sightings.map(sighting => {
+                            return Object.assign(sighting, {locationID: locationMap[sighting.locationID], observerID: observerMap[sighting.observerID], animalID: animalMap[sighting.animalID]})
+                        })
+                        res.render('sightings', {data: sightings, locations: locations, observers: observers, animals: animals});
+                    })
+                })
+            })                                                  // Render the observerAnimals.hbs file, and also send the renderer
+        })                                                      // an object where 'data' is equal to the 'rows' we
+    }); 
 
 //Add new animal    
 app.post('/add-animal-ajax', function(req,res)
@@ -113,6 +153,40 @@ app.post('/add-animal-ajax', function(req,res)
         else
         {
             query2 = `SELECT * FROM Animals;`;
+            db.pool.query(query2, function(error, rows, fields){
+
+                if (error) {
+                    console.log(error)
+                    res.sendStatus(400);
+                }
+                else
+                {
+                    res.send(rows);
+                }
+
+            })
+        }
+    })
+});
+
+//Add location
+app.post('/add-location-ajax', function(req,res)
+{
+    //get incoming data and parse to a JS object
+    let data = req.body;
+
+
+    //run query for insert
+    query1 = `INSERT INTO Locations (parkName) VALUES (?)`;
+    db.pool.query(query1, [data.parkName], function(error, rows, fields){
+        //log an error if there is one
+        if (error) {
+            console.log(error)
+            res.sendStatus(400);
+        }
+        else
+        {
+            query2 = `SELECT * FROM Locations;`;
             db.pool.query(query2, function(error, rows, fields){
 
                 if (error) {
@@ -211,39 +285,7 @@ app.post('/add-observer-animal-ajax', function(req, res)
     })
 });
 
-//Add location
-app.post('/add-location-ajax', function(req,res)
-{
-    //get incoming data and parse to a JS object
-    let data = req.body;
-
-
-    //run query for insert
-    query1 = `INSERT INTO Locations (parkName) VALUES (?)`;
-    db.pool.query(query1, [data.parkName], function(error, rows, fields){
-        //log an error if there is one
-        if (error) {
-            console.log(error)
-            res.sendStatus(400);
-        }
-        else
-        {
-            query2 = `SELECT * FROM Locations;`;
-            db.pool.query(query2, function(error, rows, fields){
-
-                if (error) {
-                    console.log(error)
-                    res.sendStatus(400);
-                }
-                else
-                {
-                    res.send(rows);
-                }
-
-            })
-        }
-    })
-});
+//add new sighting
 
 // edit observerAnimal
 app.put('/put-observer-animal-ajax', function(req,res,next)

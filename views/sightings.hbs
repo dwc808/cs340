@@ -17,14 +17,12 @@
 
     {{!-- Body section --}}
     <tbody>
-
-        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr>
             <td>{{this.sightingID}}</td>
-            <td>{{this.parkName}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.species}}</td>
+            <td>{{this.locationID}}</td>
+            <td>{{this.observerID}}</td>
+            <td>{{this.animalID}}</td>
             <td>{{this.sightingTime}}</td>
             <td>{{this.sightingDate}}</td>
             <td>{{this.weather}}</td>
