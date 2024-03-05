@@ -31,3 +31,56 @@
         {{/each}}
     </tbody>
 </table>
+
+{{!-- Form to add a record to the table  --}}
+<h2>Add Sighting</h2>
+<form id="add-sighting-form-ajax">
+    <p>* indicates required field.</p>
+    <label for="input-locationID">Location: * </label>
+    <select name="input-locationID" id="input-locationID">
+        <option value="">Select a Location</option>
+        {{#each locations}}
+        <option value="{{this.locationID}}">{{this.parkName}}</option>
+        {{/each}}
+    </select>
+    
+    <label for="input-observerID">Observer: </label>
+    <select name="input-observerID" id="input-observerID">
+        <option value="">Select an Observer</option>
+        {{#each observers}}
+        <option value="{{this.observerID}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-animalID">Animal: * </label>
+    <select name="input-animalID" id="input-animalID">
+        <option value="">Select an Animal</option>
+        {{#each animals}}
+        <option value="{{this.animalID}}">{{this.species}}</option>
+        {{/each}}
+    </select>
+    <p>
+        <label for="input-sightingTime">Time Observed: * </label>
+        <input type="time" name="input-sightingTime" id="input-sightingTime">
+    </p>
+    <p>
+        <label for="input-sightingDate">Date Observed: * </label>
+        <input type="date" name="input-sightingDate" id="input-sightingDate">
+    </p>
+        <p>
+        <label for="input-weather">Weather: * </label>
+        <select name="input-weather" id="input-weather">
+            <option value="">Select Weather Condition</option>
+            <option value="rain">Rain</option>
+            <option value="snow">Snow</option>
+            <option value="clear">Clear</option>
+            <option value="fog">Fog</option>
+        </select>
+    </p>
+    <input type="submit">
+</form>
+
+
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="./js/add-sighting.js"></script>
