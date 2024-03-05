@@ -19,9 +19,18 @@ addAnimalForm.addEventListener("submit", function (e) {
     // Get the values from the form fields
     let speciesValue = inputSpecies.value;
     let classValue = inputClass.value;
-    let flValue = inputFLTrue.checked? 1 : 0;
-    let expectedValue = inputExpectedTrue.checked ? 1 : 0;
-
+    let flValue = null;
+    if (inputFLTrue.checked) {
+        flValue = 1; // If true is checked, set value to 1
+    } else if (inputFLFalse.checked) {
+        flValue = 0; // If false is checked, set value to 0
+    }
+    let expectedValue = null;
+    if (inputExpectedTrue.checked) {
+        expectedValue = 1; // If true is checked, set value to 1
+    } else if (inputExpectedFalse.checked) {
+        expectedValue = 0; // If false is checked, set value to 0
+    }
 
     // Put our data we want to send in a javascript object
     let data = {
@@ -98,6 +107,4 @@ addRowToTable = (data) => {
     // Add the row to the table
     currentTable.appendChild(row);
 
-    // Refresh the page
-    window.location.reload();
 }
