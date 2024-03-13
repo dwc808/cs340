@@ -34,4 +34,4 @@ venv/
 # Ignore database files
 *.sqlite3
 
-.database/db-connector.js
+.database/

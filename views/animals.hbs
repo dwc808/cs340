@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="default">
 <h1>Animals</h1>
 {{!-- Create a table --}}
 <table id="animals-table" class="table">
@@ -28,15 +28,19 @@
             <td>{{this.class}}</td>
             <td>{{this.federallyListed}}</td>
             <td>{{this.expected}}</td>
-            <td><button>Edit</button></td>
+            <td><button class = "edit" onclick="showforms('update')">Edit</button></td>
             <td><button onclick="deleteAnimal({{this.animalID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+
+<button id="show-create" onClick="showforms('create')">Add new animal</button>
+
 </div>
 
-<div class="container">
+<div class="container" id="create">
+
 <h2>Add Animal</h2>
 <form id="add-animal-form-ajax">
     <p><span>*</span> indicates required field.</p>
@@ -73,12 +77,14 @@
 </form>
 </div>
 
-<div class="container">
+<div class="container" id="update">
 <h2>Update Animal</h2>
 <p>Update an animal's federal listing status or expected status.</p>
 
 <form id="update-animal-form-ajax">
 
+
+    <h3>Species: {{this.species}}</h3>
     <label for="input-species">Species: </label>
     <select name="input-species" id="animalSelect">
         <option value="test">Select an animal</option>
@@ -106,6 +112,8 @@
 </form>
 </div>
 
+
 <script src="./js/add-animal.js"></script>
 <script src="./js/delete-animal.js"></script>
 <script src="./js/update-animal.js"></script>
+<script src="./js/animal-forms.js"></script>
