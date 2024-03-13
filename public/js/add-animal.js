@@ -1,6 +1,16 @@
 //add-animal.js
 // Get the objects we need to modify
+let showform = document.getElementById('show-create');
+
 let addAnimalForm = document.getElementById("add-animal-form-ajax");
+
+showform.addEventListener('click', () => {
+    
+    if (addAnimalForm.style.display === 'none') {
+        addAnimalForm.style.display = 'block';
+    }
+})
+
 
 // Modify the objects we need
 addAnimalForm.addEventListener("submit", function (e) {
@@ -115,6 +125,13 @@ addRowToTable = (data) => {
     // Add the row to the table
     currentTable.appendChild(row);
     
+    //Update the drop down menu with newly created/edited rows
+    let selectMenu = document.getElementById("animalSelect");
+    let option = document.createElement("option");
+    option.text = newRow.species;
+    option.value = newRow.id;
+    selectMenu.add(option);
+
     // Refresh the page
     window.location.reload();
 }

@@ -402,6 +402,43 @@ app.put('/put-observer-animal-ajax', function(req,res,next)
         }
 );
 
+// edit animal
+app.put('/put-animal-ajax', function(req,res,next){
+    let data = req.body;
+  
+    let species = parseInt(data.species);
+    let federallyListed = parseInt(data.fL);
+    let expected = parseInt(data.eV);
+  
+    let queryUpdateAnimal = `UPDATE Animals SET federallyListed = ?, expected = ? WHERE animalID = ?`;
+    let selectAnimal = `SELECT * FROM Animals WHERE animalID = ?`
+  
+          // Run the 1st query
+          db.pool.query(queryUpdateAnimal, [federallyListed, expected, species], function(error, rows, fields){
+              if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+              console.log(error);
+              res.sendStatus(400);
+              }
+  
+              // If there was no error, we run our second query and return that data so we can use it to update the people's
+              // table on the front-end
+              else
+              {
+                  // Run the second query
+                  db.pool.query(selectAnimal, [species], function(error, rows, fields) {
+  
+                      if (error) {
+                          console.log(error);
+                          res.sendStatus(400);
+                      } else {
+                          res.send(rows);
+                      }
+                  })
+              }
+  })});
+
 // delete animal
 app.delete('/delete-animal-ajax', function(req,res,next){
     let data = req.body;
