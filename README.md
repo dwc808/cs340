@@ -1,0 +1,103 @@
+# Sources Cited
+- add-animal.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- add-location.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- add-observer-animal.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- add-observer.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- add-sighting.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- delete-animal.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- delete-location.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- delete-observer-animal.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- delete-observer.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- delete-sighting.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+- update-observer-animal.js
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+- main.hbs
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+- home.hbs
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+- locations.hbs
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+- observerAnimals.hbs
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+- observers.hbs
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+- sightings.hbs
+  - Citation for the following function:
+  - Date: 3/14/2024
+  - Adapted from CS340 Node.js Starter App
+  - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+- app.js
+  - Citation for GET routes:
+    - Date: 3/14/2024
+    - Adapted from CS340 Node.js Starter App
+    - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
+  - Citation for POST routes:
+    - Date: 3/14/2024
+    - Adapted from CS340 Node.js Starter App
+    - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+  - Citation for PUT route:
+    - Date: 3/14/2024
+    - Adapted from CS340 Node.js Starter App
+    - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+  - Citation for DELETE route:
+    - Date: 3/14/2024
+    - Adapted from CS340 Node.js Starter App
+    - Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
