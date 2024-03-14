@@ -21,6 +21,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
             </th>
             {{/each}}
             <th></th>
+            <th></th>
         </tr>
     </thead>
 
@@ -36,6 +37,7 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
             <td>{{this.sightingTime}}</td>
             <td>{{this.sightingDate}}</td>
             <td>{{this.weather}}</td>
+            <td><a class="btn btn-primary btn-edit" data-bs-toggle="collapse" href="#update-sighting-form-ajax">Edit</a></td>
             <td><button type="button" class="btn btn-primary" onclick="deleteSighting({{this.sightingID}})">Delete</button></td>
         </tr>
         {{/each}}
@@ -94,7 +96,84 @@ Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/St
 </div>
 
 
+<div class="container">
+{{!-- Form to update a record to the table  --}}
+<form class="collapse" id="update-sighting-form-ajax">
+    <h2>Update Sighting</h2>
+    <p><span>*</span> indicates required field.</p>
+    <p>sighting ID: </p>
+    <p id="input-sightingID-update"></p>
+    
+    <label for="input-locationID-update">Location: <span>*</span> </label>
+    <select class="form-select" name="input-locationID-update" id="input-locationID-update" required>
+        <option value="">Select a Location</option>
+        {{#each locations}}
+        <option value="{{this.locationID}}">{{this.parkName}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-observerID-update">Observer: (optional) </label>
+    <select class="form-select" name="input-observerID-update" id="input-observerID-update">
+        <option value="">Select an Observer (optional)</option>
+        {{#each observers}}
+        <option value="{{this.observerID}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-animalID-update">Animal: <span>*</span> </label>
+    <select class="form-select" name="input-animalID-update" id="input-animalID-update" required>
+        <option value="">Select an Animal</option>
+        {{#each animals}}
+        <option value="{{this.animalID}}">{{this.species}}</option>
+        {{/each}}
+    </select>
+
+    <p>
+        <label for="input-sightingTime-update">Time Observed: <span>*</span> </label>
+        <input type="time" name="input-sightingTime-update" id="input-sightingTime-update" required>
+    </p>
+
+    <p>
+        <label for="input-sightingDate-update">Date Observed: <span>*</span> </label>
+        <input type="date" name="input-sightingDate-update" id="input-sightingDate-update" required>
+    </p>
+        <p>
+        <label for="input-weather-update">Weather: <span>*</span> </label>
+        <select class="form-select" name="input-weather-update" id="input-weather-update" required>
+            <option value="">Select Weather Condition</option>
+            <option value="rain">Rain</option>
+            <option value="snow">Snow</option>
+            <option value="clear">Clear</option>
+            <option value="fog">Fog</option>
+        </select>
+    </p>
+    <input type="submit">
+
+</form>
+</div>
+
+<script>
+    // Get all "Edit" buttons
+const editButtons = document.querySelectorAll('tbody .btn-edit');
+    // Add click event listener to each "Edit" button
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the corresponding row
+            const row = this.closest('tr');
+
+            // Extract data from the row
+            const sightingID = row.dataset.value;
+
+            // Populate the edit form fields with the extracted data
+            document.getElementById('input-sightingID-update').innerText = sightingID;
+        });
+    });
+
+</script>
+
+
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add-sighting.js"></script>
 <script src="./js/delete-sighting.js"></script>
+<script src="./js/update-sighting.js"></script>

@@ -426,6 +426,32 @@ app.put('/put-observer-animal-ajax', function(req,res,next)
         }
 );
 
+// edit sighting
+app.put('/put-sighting-ajax', function(req, res, next) {
+    let data = req.body;
+
+    let sightingID = parseInt(data.sightingID);
+    let locationID = parseInt(data.locationID);
+    let observerID = parseInt(data.observerID);
+    let animalID = parseInt(data.animalID);
+    let sightingTime = data.sightingTime;
+    let sightingDate = data.sightingDate;
+    let weather = data.weather;
+    
+    let querySighting = `UPDATE Sightings SET locationID = ?, observerID = ?, animalID = ?, sightingTime = ?, sightingDate = ?, weather = ? WHERE sightingID = ?`;
+
+    db.pool.query(querySighting, [locationID, observerID, animalID, sightingTime, sightingDate, weather, sightingID], function(error, rows, fields){
+        if (error) {
+  
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+            } else {
+                res.send(rows);
+            }
+        })
+});
+
 // delete animal
 app.delete('/delete-animal-ajax', function(req,res,next){
     let data = req.body;
