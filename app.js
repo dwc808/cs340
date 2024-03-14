@@ -1,3 +1,23 @@
+// Citation for GET routes:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%204%20-%20Dynamically%20Displaying%20Data
+
+// Citation for POST routes:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+
+// Citation for PUT route:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
+// Citation for DELETE route:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
+
 // App.js
 
 /*
@@ -85,6 +105,9 @@ app.get('/observerAnimals', function(req, res)
                         let id = parseInt(animal.animalID, 10);
                         animalmap[id] = animal["species"];
                     })
+                    // Map allows dynamic drop-down of intersection table. 
+                    // Adapted from 
+                    // https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%206%20-%20Dynamically%20Filling%20Dropdowns%20and%20Adding%20a%20Search%20Box
                     observerAnimals = observerAnimals.map(observerAnimal => {
                         return Object.assign(observerAnimal, {animalID: animalmap[observerAnimal.animalID], observerID: observermap[observerAnimal.observerID]})
                     })
@@ -138,6 +161,7 @@ app.get('/sightings', function(req, res)
         })                                                      // an object where 'data' is equal to the 'rows' we
     }); 
 
+    // makes date format prettier
 function formatDate(dateString) {
     let dateObj = new Date(dateString);
     let month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
@@ -301,6 +325,7 @@ app.post('/add-sighting-ajax', function(req, res)
     // Capture the incoming data and parse it back to a JS object
     let data = req.body;
 
+    // Check for incomplete fields
     if (data.locationID === '') {
         data.locationID = null;
     }
@@ -400,43 +425,6 @@ app.put('/put-observer-animal-ajax', function(req,res,next)
           )
         }
 );
-
-// edit animal
-app.put('/put-animal-ajax', function(req,res,next){
-    let data = req.body;
-  
-    let species = parseInt(data.species);
-    let federallyListed = parseInt(data.fL);
-    let expected = parseInt(data.eV);
-  
-    let queryUpdateAnimal = `UPDATE Animals SET federallyListed = ?, expected = ? WHERE animalID = ?`;
-    let selectAnimal = `SELECT * FROM Animals WHERE animalID = ?`
-  
-          // Run the 1st query
-          db.pool.query(queryUpdateAnimal, [federallyListed, expected, species], function(error, rows, fields){
-              if (error) {
-  
-              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
-              console.log(error);
-              res.sendStatus(400);
-              }
-  
-              // If there was no error, we run our second query and return that data so we can use it to update the people's
-              // table on the front-end
-              else
-              {
-                  // Run the second query
-                  db.pool.query(selectAnimal, [species], function(error, rows, fields) {
-  
-                      if (error) {
-                          console.log(error);
-                          res.sendStatus(400);
-                      } else {
-                          res.send(rows);
-                      }
-                  })
-              }
-  })});
 
 // delete animal
 app.delete('/delete-animal-ajax', function(req,res,next){

@@ -1,3 +1,8 @@
+// Citation for the following function:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%207%20-%20Dynamically%20Deleting%20Data
+
 function deleteAnimal(animalID) {
     // Put our data we want to send in a javascript object
     let data = {

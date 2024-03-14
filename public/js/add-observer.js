@@ -1,3 +1,8 @@
+// Citation for the following function:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%205%20-%20Adding%20New%20Data
+
 //add-observer.js
 // Get the objects we need to modify
 let addObserverForm = document.getElementById("add-observer-form-ajax");

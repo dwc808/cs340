@@ -1,3 +1,8 @@
+// Citation for the following function:
+// Date: 3/14/2024
+// Adapted from CS340 Node.js Starter App
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%208%20-%20Dynamically%20Updating%20Data
+
 
 // Get the objects we need to modify
 let updateObserverAnimalForm = document.getElementById('update-observer-animal-form-ajax');
