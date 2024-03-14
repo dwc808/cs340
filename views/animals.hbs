@@ -1,7 +1,7 @@
-<div class="container" id="default">
+<div class="container">
 <h1>Animals</h1>
 {{!-- Create a table --}}
-<table id="animals-table" class="table table-striped">
+<table id="animals-table" class="table">
 
     {{!-- Header section --}}
     <thead>
@@ -36,9 +36,6 @@
         {{/each}}
     </tbody>
 </table>
-
-<button id="show-create" onClick="showforms('create')">Add new animal</button>
-
 </div>
 
 <div class="container">
@@ -78,43 +75,5 @@
 </form>
 </div>
 
-<div class="container" id="update">
-<h2>Update Animal</h2>
-<p>Update an animal's federal listing status or expected status.</p>
-
-<form id="update-animal-form-ajax">
-
-
-    <h3>Species: {{this.species}}</h3>
-    <label for="input-species">Species: </label>
-    <select name="input-species" id="animalSelect">
-        <option value="test">Select an animal</option>
-        {{#each data}}
-        <option value="{{this.animalID}}">{{this.species}}</option>
-        {{/each}}
-    </select>
-
-    <label for="input-fl">Federally listed: </label>
-    <select name="input-fl" id="input-fl-update">
-        <option vale="test">True/False</option>
-        <option value="1">True</option>
-        <option value="0">False</option>
-    </select>
-
-    <label for="input-expect">Expected: </label>
-    <select name="input-expect" id="input-expected-update">
-        <option vale="test">True/False</option>
-        <option value="1">True</option>
-        <option value="0">False</option>
-    </select>
-
-    <input type="submit">
-
-</form>
-</div>
-
-
 <script src="./js/add-animal.js"></script>
 <script src="./js/delete-animal.js"></script>
-<script src="./js/update-animal.js"></script>
-<script src="./js/animal-forms.js"></script>
