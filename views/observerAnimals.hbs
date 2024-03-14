@@ -1,20 +1,21 @@
 <div class="container">
-<!-- index.hbs -->
 <h1>Observer/Animal Connections</h1>
 {{!-- Create a table --}}
-<table id="observer-animals-table" class="table">
+<table id="observer-animals-table" class="table table-striped">
 
     {{!-- Header section --}}
     <thead>
-
         {{!-- For just the first row, we print each key of the row object as a header cell so we
         know what each column means when the page renders --}}
         <tr>
+            <th><a class="btn btn-primary" data-bs-toggle="collapse" href="#add-observer-animal-form-ajax">+ Add New</a></th>
             {{#each data.[0]}}
             <th>
                 {{@key}}
             </th>
             {{/each}}
+            <th></th>
+            <th></th>
         </tr>
     </thead>
 
@@ -23,12 +24,14 @@
         {{!-- For each row in the data --}}
         {{#each data}}
             <tr data-value={{this.observerAnimalID}}>
+                <td></td>
                 <td>{{this.observerAnimalID}}</td>
                 <td>{{this.observerID}}</td>
                 <td>{{this.animalID}}</td>
                 <td>{{this.expertiseLevel}}</td>
                 <td>{{this.timeOfDayPreference}}</td>
-                <td><button onclick="deleteObserverAnimal({{this.observerAnimalID}})">Delete</button></td>
+                <td><a class="btn btn-primary btn-edit" data-bs-toggle="collapse" href="#update-observer-animal-form-ajax">Edit</a></td>
+                <td><button type="button" class="btn btn-primary"onclick="deleteObserverAnimal({{this.observerAnimalID}})">Delete</button></td>
             </tr>
         {{/each}}
     </tbody>
@@ -36,11 +39,10 @@
 </table>
 </div>
 
-<!-- /views/index.hbs -->
 <div class="container">
 {{!-- Form to add a record to the table  --}}
-<h2>Add Observer/Animal Connection</h2>
-<form id="add-observer-animal-form-ajax">
+<form class="collapse" id="add-observer-animal-form-ajax">
+    <h2>Add Observer/Animal Connection</h2>
     <p><span>*</span> indicates required field.</p>
 
     <label class="form-label" for="input-observerID">Observer: <span>*</span> </label>
@@ -78,28 +80,16 @@
     <input type="submit">
 </form>
 </div>
+
 <div class="container">
 {{!-- Form to update a record to the table  --}}
-<h2>Update Observer/Animal Connection</h2>
-<form id="update-observer-animal-form-ajax">
-    <p>* indicates required field.</p>
-    <label class="form-label" for="input-observerID-update">Observer: <span>*</span> </label>
-    <select class="form-select" name="input-observerID-update" id="input-observerID-update">
-        <option value="">Select an Observer</option>
-        {{#each observers}}
-        <option value="{{this.observerID}}">{{this.name}}</option>
-        {{/each}}
-    </select>
-    
-    <label class="form-label" for="input-animalID-update">Animal: <span>*</span> </label>
-    <select class="form-select" name="input-animalID-update" id="input-animalID-update">
-        <option value="">Select an Animal</option>
-        {{#each animals}}
-        <option value="{{this.animalID}}">{{this.species}}</option>
-        {{/each}}
-    </select>
+<form class="collapse" id="update-observer-animal-form-ajax">
+    <h2>Update Observer/Animal Connection</h2>
+    <p><span>*</span> indicates required field.</p>
 
-    <p></p>
+    <p>observerAnimal ID: </p>
+    <p id="input-observerAnimalID-update"></p>
+
     <label class="form-label" for="input-expertiseLevel-update">Expertise Level: <span>*</span></label>
     <select class="form-select" name="input-expertiseLevel-update" id="input-expertiseLevel-update" required>
         <option value="">Select an Expertise Level</option>
@@ -121,6 +111,31 @@
 
 </form>
 </div>
+
+<script>
+    // Get all "Edit" buttons
+const editButtons = document.querySelectorAll('tbody .btn-edit');
+
+    // Add click event listener to each "Edit" button
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the corresponding row
+            const row = this.closest('tr');
+
+            // Extract data from the row
+            const observerAnimalID = row.dataset.value;
+            const expertiseLevel = row.cells[4].textContent;
+            const timeOfDayPreference = row.cells[5].textContent;
+
+            // Populate the edit form fields with the extracted data
+            document.getElementById('input-observerAnimalID-update').innerText = observerAnimalID;
+            document.getElementById('input-expertiseLevel-update').value = expertiseLevel;
+            document.getElementById('input-timeOfDayPreference-update').value = timeOfDayPreference;
+
+        });
+    });
+
+</script>
 
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 <script src="./js/add-observer-animal.js"></script>

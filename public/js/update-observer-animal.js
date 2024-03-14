@@ -9,35 +9,18 @@ updateObserverAnimalForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputName = document.getElementById("input-observerID-update");
-    let inputAnimal = document.getElementById("input-animalID-update");
+    let inputObserverAnimalID = document.getElementById("input-observerAnimalID-update").textContent;
     let inputExpertiseLevel = document.getElementById("input-expertiseLevel-update");
     let inputTimeOfDayPreference = document.getElementById("input-timeOfDayPreference-update");
 
     // Get the values from the form fields
-    let inputNameValue = inputName.value;
-    let inputAnimalValue = inputAnimal.value;
     let inputExpertiseLevelValue = inputExpertiseLevel.value;
     let inputTimeOfDayPreferenceValue = inputTimeOfDayPreference.value;
 
-    
-    // currently the database table for bsg_people does not allow updating values to NULL
-    // so we must abort if being bassed NULL for homeworld
-
-    if (isNaN(inputNameValue)) 
-    {
-        return;
-    }
-
-    if (isNaN(inputAnimalValue)) 
-    {
-        return;
-    }
 
     // Put our data we want to send in a javascript object
     let data = {
-        name: inputNameValue,
-        animal: inputAnimalValue,
+        observerAnimalID: inputObserverAnimalID,
         expertiseLevel: inputExpertiseLevelValue,
         timeOfDayPreference: inputTimeOfDayPreferenceValue
     }
@@ -52,11 +35,9 @@ updateObserverAnimalForm.addEventListener("submit", function (e) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Add the new data to the table
-            updateRow(xhttp.response, inputNameValue, inputAnimalValue);
+            updateRow(xhttp.response);
 
             // Clear the input fields for another transaction
-            inputName.value = ''
-            inputAnimal.value = ''
             inputExpertiseLevel.value = ''
             inputTimeOfDayPreference.value = ''
 
@@ -72,7 +53,7 @@ updateObserverAnimalForm.addEventListener("submit", function (e) {
 })
 
 
-function updateRow(data, observerID, animalID){
+function updateRow(data){
     // Refresh the page
     window.location.reload();
 }

@@ -364,15 +364,14 @@ app.put('/put-observer-animal-ajax', function(req,res,next)
 {
     let data = req.body;
   
-    let name = parseInt(data.name);
-    let animal = parseInt(data.animal);
+    let observerAnimalID = parseInt(data.observerAnimalID);
     let expertiseLevel = data.expertiseLevel;
     let timeOfDayPreference = data.timeOfDayPreference;
   
-    let queryObserverAnimal = `UPDATE ObserverAnimals SET expertiseLevel = ?, timeOfDayPreference = ? WHERE animalID = ? AND observerID = ?`;
+    let queryObserverAnimal = `UPDATE ObserverAnimals SET expertiseLevel = ?, timeOfDayPreference = ? WHERE observerAnimalID = ?`;
   
           // Run the 1st query
-          db.pool.query(queryObserverAnimal, [expertiseLevel, timeOfDayPreference, animal, name], function(error, rows, fields){
+          db.pool.query(queryObserverAnimal, [expertiseLevel, timeOfDayPreference, observerAnimalID], function(error, rows, fields){
               if (error) {
   
               // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.

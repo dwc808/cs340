@@ -47,6 +47,7 @@ addObserverAnimalForm.addEventListener("submit", function (e) {
             inputTimeOfDayPreference.value = '';
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
+            alert("This observer is already connected with an animal.")
             console.log("There was an error with the input.")
         }
     }

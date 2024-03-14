@@ -1,7 +1,7 @@
 <div class="container">
 <h1>Sightings</h1>
 {{!-- Create a table --}}
-<table id="sightings-table" class="table">
+<table id="sightings-table" class="table table-striped">
 
     {{!-- Header section --}}
     <thead>
@@ -9,11 +9,13 @@
         {{!-- For just the first row, we print each key of the row object as a header cell so we
         know what each column means when the page renders --}}
         <tr>
+            <th><a class="btn btn-primary" data-bs-toggle="collapse" href="#add-sighting-form-ajax">+ Add New</a></th>
             {{#each data.[0]}}
             <th>
                 {{@key}}
             </th>
             {{/each}}
+            <th></th>
         </tr>
     </thead>
 
@@ -21,6 +23,7 @@
     <tbody>
         {{#each data}}
         <tr data-value={{this.sightingID}}>
+            <td></td>
             <td>{{this.sightingID}}</td>
             <td>{{this.locationID}}</td>
             <td>{{this.observerID}}</td>
@@ -28,7 +31,7 @@
             <td>{{this.sightingTime}}</td>
             <td>{{this.sightingDate}}</td>
             <td>{{this.weather}}</td>
-            <td><button onclick="deleteSighting({{this.sightingID}})">Delete</button></td>
+            <td><button type="button" class="btn btn-primary" onclick="deleteSighting({{this.sightingID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -37,8 +40,8 @@
 
 <div class="container">
 {{!-- Form to add a record to the table  --}}
-<h2>Add Sighting</h2>
-<form id="add-sighting-form-ajax">
+<form class="collapse" id="add-sighting-form-ajax">
+    <h2>Add Sighting</h2>
     <p><span>*</span> indicates required field.</p>
     <label for="input-locationID">Location: <span>*</span> </label>
     <select class="form-select" name="input-locationID" id="input-locationID" required>

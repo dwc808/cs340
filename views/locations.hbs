@@ -1,7 +1,7 @@
 <div class="container">
 <h1>Locations</h1>
 {{!-- Create a table --}}
-<table id="locations-table" class="table">
+<table id="locations-table" class="table table-striped">
 
     {{!-- Header section --}}
     <thead>
@@ -9,11 +9,13 @@
         {{!-- For just the first row, we print each key of the row object as a header cell so we
         know what each column means when the page renders --}}
         <tr>
+            <th><a class="btn btn-primary" data-bs-toggle="collapse" href="#add-location-form-ajax">+ Add New</a></th>
             {{#each data.[0]}}
             <th>
                 {{@key}}
             </th>
             {{/each}}
+            <th></th>
         </tr>
     </thead>
 
@@ -23,9 +25,10 @@
         {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr data-value={{this.locationID}}>
+            <td></td>
             <td>{{this.locationID}}</td>
             <td>{{this.parkName}}</td>
-            <td><button onclick="deleteLocation({{this.locationID}})">Delete</button></td>
+            <td><button type="button" class="btn btn-primary" onclick="deleteLocation({{this.locationID}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
@@ -33,8 +36,8 @@
 </div>
 
 <div class="container">
-<h2>Add Location</h2>
-<form id="add-location-form-ajax">
+<form class="collapse" id="add-location-form-ajax">
+    <h2>Add Location</h2>
     <p><span>*</span> indicates required field.</p>
     <label class="form-label" for="input-parkName">Park Name: <span>*</span> </label>
     <input type="text" name="input-parkName" id="input-parkName" required>
